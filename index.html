@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title> CRUD App</title>
+		
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			.modal{
+				width: 100%;
+				height: 100vh;
+				background-color: rgba(0,0,0,0.4);
+				position: fixed;
+				display: none;
+			}
+			.child-modal{
+				height: 500px;
+				width: 70%;
+				background-color: white;
+				margin-left: 15%;
+				margin-top: 100px;
+				display: inline-block;
+			}
+			.box{
+				background-color: lightgray;
+				height: 500px;
+				width: 80%;
+				margin-left: 10%;
+				margin-top: 50px;
+				padding: 20px;
+				font-family: sans-serif;
+			}
+			tr:hover{
+				background-color: lightgray;
+			}
+			.table{
+				width: 100%;
+				margin-top: 20px;
+				background-color: white;
+			}
+			tr, th{
+				height: 35px;
+				text-align: center;
+			}
+			input{
+				margin-top: 20px;
+				height: 30px;
+				width: 18%;
+				text-indent: 10px;
+			}
+			.button{
+				height: 30px;
+				width: 6%;
+			}
+			.in{
+				margin-left: 20px;
+				margin-right: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="modal" onclick="submitUpdate(event)">
+				<div class="child-modal">
+					<form class="in">
+						<input type="text" required placeholder="Name" id="upname"/>
+						<input type="text" required placeholder="Source" id="upsource"/>
+						<input type="text" required placeholder="Destination" id="updest"/>
+						<input type="text" required placeholder="Number" id="upnum"/>
+						<input type="number" required placeholder="Passenger Capacity" id="uppass"/>
+						<button type="submit" class="button" onclick="submitUpdate(event)">Update</button>
+					</form>
+				</div>
+		</div>
+		<div class="box">
+			<h1>Kolkata Bus Database</h1>
+			
+			<form>
+				<input type="text" required placeholder="Name" id="name"/>
+				<input type="text" required placeholder="Source" id="source"/>
+				<input type="text" required placeholder="Destination" id="dest"/>
+				<input type="text" required placeholder="Number" id="num"/>
+				<input type="number" required placeholder="Passenger Capacity" id="pass"/>
+				<button type="submit" class="button" onclick="addBus(event)">Add Bus</button>
+			</form>
+			<input type="text" id="input" placeholder="Search by source or destination" onkeyup="searchDisplay()" />
+			
+			<table border="1" class="table" cellspacing="0">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Source</th>
+						<th>Destination</th>
+						<th>Number</th>
+						<th>Passenger Capacity</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody class="table-body"></tbody>
+			</table>
+		</div>
+		<script src="app.js"></script>
+	</body>
+</html>
